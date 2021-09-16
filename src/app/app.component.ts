@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SelectionComponentComponent } from "./selection-component/selection-component.component";
 
 @Component({
   selector: 'app-root',
