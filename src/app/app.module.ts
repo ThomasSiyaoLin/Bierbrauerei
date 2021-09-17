@@ -7,6 +7,7 @@ import { SelectionComponentComponent } from './selection-component/selection-com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateComponentComponent } from './create-component/create-component.component';
 import { ViewComponentComponent } from './view-component/view-component.component';
+import { BrandServiceComponent } from './Service/brand-service/brand-service.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import { ViewComponentComponent } from './view-component/view-component.componen
     SelectionComponentComponent,
     CreateComponentComponent,
     ViewComponentComponent
+
   ],
   imports: [
     BrowserModule,
     NgbModule
   ],
-  providers: [SelectionComponentComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

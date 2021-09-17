@@ -1,1 +1,22 @@
-<p >Wählen Sie eine Marke aus</p>
+<div class="ComponentClass">
+
+
+    <div class="row">
+      <div class="brandSelect col-4" >
+        <p >Wählen Sie eine Marke aus</p>
+        <ul class="brands">
+          <li *ngFor=" let brand of brands">
+            <button type="button" class="btn btn-secondary" (click)="onSelectBrand(brand)"> {{brand}}</button>
+          </li>
+        </ul>
+        <div class="col-md-4 offset-md-4" *ngIf="selectedBrand != undefined">
+          <p>Wählen Sie eine Kampagne aus </p>
+          <
+        </div>
+      </div>
+
+      <div> test</div>
+    </div>
+
+
+</div>

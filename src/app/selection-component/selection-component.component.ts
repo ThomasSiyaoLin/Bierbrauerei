@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 
 @Component({
@@ -8,8 +8,9 @@ import {BehaviorSubject, Observable, of} from 'rxjs';
 })
 @Injectable()
 export class SelectionComponentComponent implements OnInit {
-  data = new BehaviorSubject(0);
-  nums = this.data.asObservable();
+
+    @Output()menNumer : number = 0;
+    @Output() onClick = new EventEmitter();
     //if 0 then main selection; 1 is create Component; 2 is reedeem coupon; 3 is check coupon
 
   constructor() {
@@ -19,17 +20,21 @@ export class SelectionComponentComponent implements OnInit {
 
 
   couponCreateClicked(){
-    this.data.next(1);
+    this.onClick.emit(1);
+    this.menNumer = 1;
+    console.log(this.menNumer);
 
 
   }
   couponCheckedClicked(){
-    this.data.next(2);
-
+    this.onClick.emit(2);
+    this.menNumer = 2;
+    console.log(this.menNumer);
   }
 
   couponReedeemClicked(){
-    this.data.next(3);
+    this.onClick.emit(3);
+    this.menNumer = 3;
 
   }
 
