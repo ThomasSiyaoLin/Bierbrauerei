@@ -1,0 +1,11 @@
+
+<h4 style="font-weight: bold">Informationen zur Kampagne</h4>
+<div class="information row-no-gutters" *ngIf="marketingCampaign!=undefined">
+  <span>
+    <p>Name der Marketing-Kampagne: <br><span class="normalus">{{marketingCampaign.campaignName}}</span></p>
+    <p>Marke: <span class="normalus">{{marketingCampaign.brand}}</span> </p>
+    <p>ID der Marketing-Kampagne: <span class="normalus">{{marketingCampaign.campaignID}}</span></p>
+    <p>Start-Datum: <span class="normalus">{{marketingCampaign.startDate}}</span></p>
+    <p>Ende-Datum: <span class="normalus">{{marketingCampaign.endDate}}</span></p>
+  </span>
+</div>

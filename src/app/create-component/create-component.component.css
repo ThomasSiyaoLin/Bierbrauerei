@@ -1,17 +1,20 @@
-p{
-  font-size: medium;
-  font-weight: bolder;
 
-}
 
 .ComponentClass{
   margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
 }
 
 li{
   margin-top: 5px;
+  list-style-type:none
 }
 
 .brandSelect{
 
+}
+
+.deadCampaign{
+  border-color: red;
 }

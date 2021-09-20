@@ -9,7 +9,7 @@ import {BehaviorSubject, Observable, of} from 'rxjs';
 @Injectable()
 export class SelectionComponentComponent implements OnInit {
 
-    @Output()menNumer : number = 0;
+    menNumer : number = 0;
     @Output() onClick = new EventEmitter();
     //if 0 then main selection; 1 is create Component; 2 is reedeem coupon; 3 is check coupon
 
@@ -27,16 +27,18 @@ export class SelectionComponentComponent implements OnInit {
 
   }
   couponCheckedClicked(){
-    this.onClick.emit(2);
-    this.menNumer = 2;
+    this.onClick.emit(3);
+    this.menNumer = 3;
     console.log(this.menNumer);
   }
 
   couponReedeemClicked(){
-    this.onClick.emit(3);
-    this.menNumer = 3;
+    this.onClick.emit(2);
+    this.menNumer = 2;
 
   }
+
+
 
   ngOnInit(): void {
 

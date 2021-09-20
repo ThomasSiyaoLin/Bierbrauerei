@@ -1,22 +1,55 @@
-<div class="ComponentClass">
+<div class="ComponentClass container-fluid">
 
 
-    <div class="row">
-      <div class="brandSelect col-4" >
+  <div class="row">
+    <div class="brandSelect">
+      <div class="col-md-4">
         <p >Wählen Sie eine Marke aus</p>
+
         <ul class="brands">
           <li *ngFor=" let brand of brands">
             <button type="button" class="btn btn-secondary" (click)="onSelectBrand(brand)"> {{brand}}</button>
           </li>
         </ul>
-        <div class="col-md-4 offset-md-4" *ngIf="selectedBrand != undefined">
+
+        <div  *ngIf="selectedBrand != undefined">
           <p>Wählen Sie eine Kampagne aus </p>
-          <
+          <ul>
+            <li *ngFor=" let campi of campaigns">
+              <button *ngIf="campi.endDate > timeStamp && selectedBrand == campi.brand" type="button" class="btn btn-secondary"
+                      (click)="onSelectMarketingCampaign(campi)"> {{campi.campaignName}}</button>
+              <button *ngIf="campi.endDate < timeStamp && selectedBrand == campi.brand" type="button" class="btn btn-secondary deadCampaign"
+                      (click)="onSelectMarketingCampaign(campi)"> {{campi.campaignName}} (abgelaufen) </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div *ngIf=" selectedCampaign!= undefined && selectedBrand == selectedCampaign.brand">
+        <div class="col-md-4 " >
+          <app-marketing-details [marketingCampaign]="selectedCampaign"></app-marketing-details>
+        </div>
+        <div class="col-md-4">
+          <h4 style="font-weight: bold">Erstelle neue Coupons</h4>
+          <div class = "form-group" style="width: fit-content">
+            <label for="numberOfCoupons">Anzahl neuer Coupons</label>
+            <input type="number" min="1" class="form-control" id="numberOfCoupons" aria-describedby="numberHelp" placeholder="Anzahl eingeben">
+            <small id="numberHelp" class="form-text text-muted">Für <span style="font-weight: bold">{{selectedCampaign.campaignName}} </span>Coupons generieren</small>
+            <br> <br>
+            <label for="couponStartValue" style="width: fit-content">ID Startwert setzen</label>
+            <input type="number" min="1" class="form-control" id="couponStartValue" aria-describedby="startHelp" placeholder="Startwert eingeben">
+            <small id="startHelp" class="form-text text-muted">Für <span style="font-weight: bold">{{selectedCampaign.campaignName}} </span>Start ID festlegen</small>
+          </div>
         </div>
       </div>
 
-      <div> test</div>
     </div>
+  </div>
 
 
+</div>
+
+
+
+<div class="ComponentClass" style="margin-top: 10%">
+  <button type="button" class="btn btn-primary customBlock" *ngIf="selectedCampaign != undefined || selectedBrand !=undefined" (click)="resetAll()">Hauptmenü</button>
 </div>

@@ -8,17 +8,25 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateComponentComponent } from './create-component/create-component.component';
 import { ViewComponentComponent } from './view-component/view-component.component';
 import { BrandServiceComponent } from './Service/brand-service/brand-service.component';
+import { ResetComponent } from './reset/reset.component';
+import { ReedeemComponent } from './reedeem/reedeem.component';
+import { MarketingDetailsComponent } from './marketing-details/marketing-details.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectionComponentComponent,
     CreateComponentComponent,
-    ViewComponentComponent
+    ViewComponentComponent,
+    ResetComponent,
+    ReedeemComponent,
+    MarketingDetailsComponent,
 
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],
