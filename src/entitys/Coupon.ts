@@ -3,13 +3,13 @@ export class Coupon{
 
   couponID : string;
   campaignID : string;
-  isUsed : boolean;
+  used : boolean;
   userID : string;
 
   constructor(couponID :string, campaignID : string, isUsed : boolean, userID : string) {
     this.couponID = couponID;
     this.campaignID = campaignID;
-    this.isUsed = isUsed;
+    this.used = isUsed;
     this.userID = userID;
   }
 

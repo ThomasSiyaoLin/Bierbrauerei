@@ -18,3 +18,26 @@ li{
 .deadCampaign{
   border-color: red;
 }
+
+
+.loading{
+  display: flex;
+
+
+}
+
+.loading::after{
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 10px solid #dddddd;
+  border-top-color: #2e6da4;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to{
+    transform: rotate(1turn);
+  }
+}

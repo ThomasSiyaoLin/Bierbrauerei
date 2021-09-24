@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "localhost:8090/MarketingCampaignService",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

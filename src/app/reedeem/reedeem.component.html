@@ -1,1 +1,31 @@
-<p>reedeem works!</p>
+<div class="container-fluid">
+  <div class="center-block text-center text-info">
+    <p style="font-weight: bolder">Geben Sie die Coupon Nummer ein</p>
+    <div class = "form-group center-block text-center text-info" style="width: fit-content">
+      <label for="couponID">Coupon-ID</label>
+      <input type="text" min="1" class="form-control" id="couponID" aria-describedby="couponHelo" placeholder="ID eingeben" (input)="setCouponID(getCouponIDInput())">
+      <small id="numberHelp" class="form-text text-muted">Die ID ist eine Kombination aus Buchstaben und Zahlen</small>
+      <br>
+      <button class="btn btn-primary" (click)="reedeemCoupon(getCouponIDInput())" [disabled]="!(getCouponIDInput().length > 35) ">Coupon überprüfen</button>
+    </div>
+    <div class="info"*ngIf="couponToReedeem != undefined">
+      <h4>Coupon Informationen</h4>
+      Dieser Code ist
+      <span *ngIf="(couponToReedeem.used == false && fourOFourError == false && couponToReedeem.used == false) ; else elseBlock"> EINLÖSBAR</span>
+      <ng-template #elseBlock class="error"> NICHT EINLÖSBAR</ng-template>
+      <br>
+      <span *ngIf="couponToReedeem.used ==true">BEREITS EINGELÖST</span>
+
+    </div>
+    <span *ngIf="fourOFourError == true">Coupon konnte <span class="error">NICHT GEFUNDEN WERDEN</span> </span>
+    <div class="ComponentClass" style="margin-top: 10%">
+      <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
+    </div>
+
+  </div>
+
+
+
+
+</div>
+

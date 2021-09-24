@@ -1,0 +1,11 @@
+.SelectionClass{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  justify-content: center;
+}
+
+.error{
+  font-weight: bolder;
+  color: red;
+}

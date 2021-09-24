@@ -8,7 +8,7 @@
 
         <ul class="brands">
           <li *ngFor=" let brand of brands">
-            <button type="button" class="btn btn-secondary" (click)="onSelectBrand(brand)"> {{brand}}</button>
+            <button type="button" class="btn btn-secondary" (click)="onSelectBrand(brand)" > {{brand}}</button>
           </li>
         </ul>
 
@@ -32,24 +32,38 @@
           <h4 style="font-weight: bold">Erstelle neue Coupons</h4>
           <div class = "form-group" style="width: fit-content">
             <label for="numberOfCoupons">Anzahl neuer Coupons</label>
-            <input type="number" min="1" class="form-control" id="numberOfCoupons" aria-describedby="numberHelp" placeholder="Anzahl eingeben">
+            <input type="number" min="1" class="form-control" id="numberOfCoupons" aria-describedby="numberHelp" placeholder="Anzahl eingeben" (input)="checkAreBoxesFilled()">
             <small id="numberHelp" class="form-text text-muted">Für <span style="font-weight: bold">{{selectedCampaign.campaignName}} </span>Coupons generieren</small>
             <br> <br>
             <label for="couponStartValue" style="width: fit-content">ID Startwert setzen</label>
-            <input type="number" min="1" class="form-control" id="couponStartValue" aria-describedby="startHelp" placeholder="Startwert eingeben">
+            <input type="number" min="1" class="form-control" id="couponStartValue" aria-describedby="startHelp" placeholder="Startwert eingeben" (input)="checkAreBoxesFilled()">
             <small id="startHelp" class="form-text text-muted">Für <span style="font-weight: bold">{{selectedCampaign.campaignName}} </span>Start ID festlegen</small>
+            <div *ngIf="checkAreBoxesFilled() == true">
+              <button class="btn btn-primary"  (click)="createNewCoupons(getNumberOfCoupons(),getStartValue()) ">Coupons erstellen</button>
+            </div>
+            <div *ngIf="isNegativeValues()">
+              <span class="badge badge-danger" style="background-color: red; margin-top: 3px">Bitte keine negativen Werte eingeben </span>
+            </div>
           </div>
         </div>
       </div>
+
 
     </div>
   </div>
 
 
+
+
+  <div>
+  <span *ngIf=" coupons != undefined && areCouponsAndCampaignSame()">  {{setLoading(false)}} Die Coupons wurden erfolgreich erstellt </span>
+   <span *ngIf="loading == true" class="loading">Erstelle Coupons... </span>
+
+</div>
 </div>
 
 
 
 <div class="ComponentClass" style="margin-top: 10%">
-  <button type="button" class="btn btn-primary customBlock" *ngIf="selectedCampaign != undefined || selectedBrand !=undefined" (click)="resetAll()">Hauptmenü</button>
+  <button type="button" class="btn btn-primary customBlock"  (click)="resetAll()">Hauptmenü</button>
 </div>
