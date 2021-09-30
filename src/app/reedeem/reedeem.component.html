@@ -1,31 +1,59 @@
 <div class="container-fluid">
-  <div class="center-block text-center text-info">
+  <div class="center-block text-center text-info" *ngIf="httpResponseError == undefined">
     <p style="font-weight: bolder">Geben Sie die Coupon Nummer ein</p>
     <div class = "form-group center-block text-center text-info" style="width: fit-content">
       <label for="couponID">Coupon-ID</label>
       <input type="text" min="1" class="form-control" id="couponID" aria-describedby="couponHelo" placeholder="ID eingeben" (input)="setCouponID(getCouponIDInput())">
       <small id="numberHelp" class="form-text text-muted">Die ID ist eine Kombination aus Buchstaben und Zahlen</small>
       <br>
-      <button class="btn btn-primary" (click)="reedeemCoupon(getCouponIDInput())" [disabled]="!(getCouponIDInput().length > 35) ">Coupon überprüfen</button>
+      <button class="btn btn-primary" (click)="getCoupon(getCouponIDInput())" [disabled]="!(getCouponIDInput().length > 35) ">Coupon überprüfen</button>
     </div>
-    <div class="info"*ngIf="couponToReedeem != undefined">
-      <h4>Coupon Informationen</h4>
+
+    <div class="info orm-group center-block text-center text-info "*ngIf="couponToReedeem!= undefined">
+
       Dieser Code ist
-      <span *ngIf="(couponToReedeem.used == false && fourOFourError == false && couponToReedeem.used == false) ; else elseBlock"> EINLÖSBAR</span>
-      <ng-template #elseBlock class="error"> NICHT EINLÖSBAR</ng-template>
+      <div
+        *ngIf="(couponToReedeem.used == false && fourOFourError == false && couponToReedeem.used == false);
+           else elseBlock">
+        <span style="color: darkgreen; font-weight: bolder" >EINLÖSBAR </span>
+        <div class="form-group center-block text-center text-info" style="width: fit-content">
+          <br>
+
+          <form [formGroup]="userEmail">
+            <label for="emailInput" style="color: #2e6da4">E-Mail eingeben</label>
+            <input type="email" [class.EmailError]="isUserEmailCorrect()" formControlName="eMailUser"
+                   class="form-control EmailBox" name="eMailUser" id="emailInput"
+                   aria-describedby="emailHelp" placeholder="E-mail Adresse" (input)="setEmail(getEmailInput())">
+            <small id="emailHelp" class="form-text text-muted">Der Coupon wird mit dieser E-mail eingelöst</small>
+          </form>
+          <button class="btn btn-primary" (click)="redeemCoupon(eMail)" [disabled]="isUserEmailCorrect() ">Coupon jetzt einlösen</button>
+
+        </div>
+
+      </div>
+      <ng-template #elseBlock >
+        <span class="error" style= "color: red">NICHT EINLÖSBAR </span>
+      </ng-template>
       <br>
-      <span *ngIf="couponToReedeem.used ==true">BEREITS EINGELÖST</span>
+      <span *ngIf="couponToReedeem.used ==true" style= "color: red; font-weight: bolder " >BEREITS EINGELÖST</span>
 
     </div>
     <span *ngIf="fourOFourError == true">Coupon konnte <span class="error">NICHT GEFUNDEN WERDEN</span> </span>
-    <div class="ComponentClass" style="margin-top: 10%">
-      <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
-    </div>
+
+
+
 
   </div>
 
-
-
-
+  <div class="container-fluid center-block text-center text-info">
+    <div *ngIf="httpResponseError!=undefined">
+      <span class="success">Coupon wurde eingelöst. Weiteren Coupon einlösen?</span>
+      <br> <br>
+      <button type="button" class="btn btn-primary customBlock" (click)="resetCoupon()">Weitere Coupons einlösen</button>
+    </div>
+  </div>
+  <div class="ComponentClass center-block text-center" style="margin-top: 10%">
+    <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
+  </div>
 </div>
 

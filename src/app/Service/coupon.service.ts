@@ -29,4 +29,11 @@ export class CouponService {
     var backSlash :string = "/";
     return this.http.get<Coupon>(this.COUPON_SERVICE_URL+couponID);
   }
+
+  updateCoupon (couponID : string, userId : string) :Observable<any> {
+    var backSlash :string = "/";
+    console.log(this.COUPON_SERVICE_URL+couponID+backSlash+userId);
+    let c: Coupon = new Coupon("3fadf", "3", true, "123");
+    return this.http.patch(this.COUPON_SERVICE_URL+couponID+backSlash+userId, c);
+  }
 }

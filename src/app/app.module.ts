@@ -12,6 +12,8 @@ import { ResetComponent } from './reset/reset.component';
 import { ReedeemComponent } from './reedeem/reedeem.component';
 import { MarketingDetailsComponent } from './marketing-details/marketing-details.component';
 import {HttpClientModule} from "@angular/common/http";
+import { CheckComponent } from './check/check.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import {HttpClientModule} from "@angular/common/http";
     ResetComponent,
     ReedeemComponent,
     MarketingDetailsComponent,
+    CheckComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
