@@ -1,0 +1,68 @@
+<div class="ComponentClass container-fluid">
+
+
+  <div class="row" *ngIf="newCreatedCampaign == undefined">
+    <div>
+      <div class="col-md-4">
+        <p >Wählen Sie eine Marke aus</p>
+
+        <ul class="brands">
+          <li *ngFor=" let brand of brands">
+            <button type="button" class="btn btn-secondary" (click)="newCampaignBrand = brand"> {{brand}}</button>
+          </li>
+        </ul>
+
+      </div>
+      <div *ngIf=" newCampaignBrand != undefined">
+
+        <div class="col-md-4">
+          <h4 >Neue Marketing-Kampagne für <br> <span style="color: #dc3545">{{newCampaignBrand}}</span> eingeben</h4>
+          <div class = "form-group" style="width: fit-content">
+            <label for="startDate">Start Datum eingeben für die Kampagne</label>
+            <input type="date" class="form-control" id="startDate" placeholder="Start Datum eingeben" (change)="setStartDate()" >
+            <br> <br>
+            <div *ngIf="newCampaignStartDate != undefined">
+            <label for="endDate">Ende Datum eingeben für die Kampagne</label>
+            <input type="date" min ="" class="form-control" id="endDate" placeholder="Ende Datum eingeben" (change)="setEndDate()" >
+              <br>
+            </div>
+            <div *ngIf="newCampaignStartDate != undefined && newCampaignEndDate != undefined">
+              <label for="nameCampaign">Welchen Namen wollen Sie für die Kampangene geben</label>
+              <input type="text" class="form-control" id="nameCampaign" placeholder="Name für die Kampagne eingeben" (change)="setCampaignname()" >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 MarketingInformation" *ngIf="newCampaignStartDate != undefined && newCampaignEndDate != undefined && newCampaignName != '' ">
+          <h4 style="font-weight: bolder">Folgende Kampagne soll erstellt werden</h4>
+          <p>Name der Kampagne: <span>{{newCampaignName}}</span></p>
+          <p>Start-Datum: <span>{{newCampaignStartDate.toISOString()}}</span></p>
+          <p>Ende-Datum:<span> {{newCampaignEndDate.toISOString()}}</span></p>
+          <p>Marke der Kampagne: <span>{{newCampaignBrand}}</span></p>
+        </div>
+        <div  *ngIf="newCampaignStartDate != undefined && newCampaignEndDate != undefined && newCampaignName != '' ">
+
+          <p style="margin-top: 10px">Wenn alle Informationen korrekt sind, klicken Sie auf erstellen</p>
+          <button class="btn btn-primary customBlock" (click)="creatCampaign()">Erstellen</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="newCreatedCampaign != undefined" class="center-block text-center text-info" >
+    <p style="font-weight: lighter">Die neu erstellte Marketing Kampagne hat folgende ID bekommen:</p>
+    <br><p>{{newCreatedCampaign.campaignID}}</p>
+    <div>
+    <button class="btn btn-primary customBlock" (click)="creatCampaign()">Eine weitere Marketing-Kampagne erstellen</button>
+    </div>
+    <div class="ComponentClass" style="margin-top: 10%">
+      <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
+    </div>
+  </div>
+
+  <div class="ComponentClass" style="margin-top: 10%" *ngIf="newCreatedCampaign == undefined">
+    <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
+  </div>
+
+</div>

@@ -1,0 +1,53 @@
+
+
+.ComponentClass{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+}
+
+.MarketingInformation{
+  border-style: solid;
+  border-radius: 25px;
+  border-color: #337ab7;
+}
+
+p{
+  font-weight: bolder;
+}
+li{
+  margin-top: 5px;
+  list-style-type:none
+}
+
+span{
+  font-weight: normal;
+}
+
+
+.deadCampaign{
+  border-color: red;
+}
+
+
+.loading{
+  display: flex;
+
+
+}
+
+.loading::after{
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 10px solid #dddddd;
+  border-top-color: #2e6da4;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to{
+    transform: rotate(1turn);
+  }
+}

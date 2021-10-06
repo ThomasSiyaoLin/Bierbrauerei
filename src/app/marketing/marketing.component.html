@@ -1,0 +1,18 @@
+
+
+<div class="container" *ngIf="menuSelection==0">
+  <div class="ComponentClass col-sm">
+    <div class="buttonSpace">
+      <button type="button" class="btn btn-primary customBlock buttonSpaceGlobal" (click)="menuSelection=1; onClickMarketing.emit(!reset)">Neue Marketing-Kampagne erstellen</button>
+    </div>
+    <div class="buttonSpace">
+      <button type="button" class="btn btn-primary customBlock buttonSpaceGlobal" (click)="menuSelection=2; onClickMarketing.emit(!reset)">Details einer Marketing Kampagne</button>
+    </div>
+
+  </div>
+
+</div>
+
+<app-create-marketing *ngIf="menuSelection == 1"></app-create-marketing>
+<app-marketing-details *ngIf="menuSelection==2"></app-marketing-details>
+
