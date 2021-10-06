@@ -1,7 +1,21 @@
 .verticalCenter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   margin-top: 10%;
+  margin-left: 20%;
 }
 
+.buttonSpaceGlobal{
+  width: auto !important;
+  margin-top: 20%;
+  position: center;
+}
+
+.ComponentClass{
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+}
+
+body{
+  background-color: darkcyan;
+}

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
-import {map, isEmpty, mapTo} from 'rxjs/operators';
 import {MarketingCampaign} from "../../entitys/MarketingCampaign";
 
 
@@ -18,8 +17,18 @@ export class MarketingCampaignService {
     return  this.http.get<MarketingCampaign[]>(this.MARKETING_SERVICE_URL);
  }
 
-  copyFuncktion(campi : MarketingCampaign){
-    console.log(campi);
+ createCampaign(startDate : string, endDate : string, brand : string, campaignName : string) {
+    var backSlash : string = '/';
+    var campaignID;
+   return this.http.post<MarketingCampaign>(this.MARKETING_SERVICE_URL+backSlash+startDate+backSlash+endDate+backSlash+brand,"");
+
+
+ }
+
+  setCampaignName(campaignID : string, campaignName : string) {
+    var backSlash : string = '/';
+    this.http.patch<MarketingCampaign>(this.MARKETING_SERVICE_URL+backSlash+campaignName+backSlash+campaignID, "")
+      .subscribe();
   }
 
   checkIfBoxesAreFilled() : boolean {

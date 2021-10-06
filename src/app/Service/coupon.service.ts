@@ -20,7 +20,7 @@ export class CouponService {
     let c: Coupon = new Coupon("3fadf", "3", true, "123");
     var backSlash :string = "/";
     console.log(this.COUPON_SERVICE_URL+marketingID+backSlash+amount.toString()+backSlash+startValue.toString());
-    return this.http.post<Coupon[]>(this.COUPON_SERVICE_URL+marketingID+backSlash+amount.toString()+backSlash+startValue.toString(), c)
+    return this.http.post<Coupon[]>(this.COUPON_SERVICE_URL+marketingID+backSlash+amount.toString()+backSlash+startValue.toString(),"")
 
   }
 

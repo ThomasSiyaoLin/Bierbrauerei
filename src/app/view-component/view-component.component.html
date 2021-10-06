@@ -1,4 +1,18 @@
-<app-selection-component></app-selection-component>
+<div class="container-fluid">
 
 
+  <div class="row">
+    <div class="ComponentClass col-sm-1" *ngIf="!switchComponent">
+      <button class="btn btn-primary buttonSpace" (click)="switchToSelectionComponent()">Coupons verwalten</button> <br>
+      <button class="btn btn-primary buttonSpace" (click)="switchToSelectionMarketing()">Kampagnen verwalten</button> <br>
+      <button class="btn btn-primary buttonSpace" (click)="switchToSelectionBrand()">Marken verwalten</button> <br>
+    </div>
 
+    <div>
+      <app-selection-component *ngIf="menSelection == 1" (onClickSelection)="setView($event)" ></app-selection-component>
+      <app-marketing *ngIf="menSelection == 2" (onClickMarketing)="setView($event)"></app-marketing>
+      <app-brand *ngIf="menSelection==3"></app-brand>
+    </div>
+  </div>
+
+</div>

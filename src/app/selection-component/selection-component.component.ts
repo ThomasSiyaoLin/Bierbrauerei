@@ -10,7 +10,8 @@ import {BehaviorSubject, Observable, of} from 'rxjs';
 export class SelectionComponentComponent implements OnInit {
 
     menNumer : number = 0;
-    @Output() onClick = new EventEmitter();
+    @Output() onClickSelection = new EventEmitter<boolean>();
+    @Input()reset : boolean = true;
     //if 0 then main selection; 1 is create Component; 2 is reedeem coupon; 3 is check coupon
 
   constructor() {
@@ -20,20 +21,20 @@ export class SelectionComponentComponent implements OnInit {
 
 
   couponCreateClicked(){
-    this.onClick.emit(1);
+    this.onClickSelection.emit(this.reset);
     this.menNumer = 1;
     console.log(this.menNumer);
 
 
   }
   couponCheckedClicked(){
-    this.onClick.emit(3);
+    this.onClickSelection.emit(this.reset);
     this.menNumer = 3;
     console.log(this.menNumer);
   }
 
   couponReedeemClicked(){
-    this.onClick.emit(2);
+    this.onClickSelection.emit(this.reset);
     this.menNumer = 2;
 
   }

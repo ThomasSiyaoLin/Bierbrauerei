@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {MarketingCampaign} from "../../entitys/MarketingCampaign";
 
+@Injectable()
 @Component({
   selector: 'app-marketing-details',
   templateUrl: './marketing-details.component.html',
@@ -16,8 +17,5 @@ export class MarketingDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showDetails() :void {
-
-  }
 
 }

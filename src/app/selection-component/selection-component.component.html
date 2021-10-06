@@ -1,19 +1,19 @@
 
-<div class="container" >
-  <div class="row justify-content-end" *ngIf=" menNumer=== 0">
-    <div class="col-3 text-center">
+
+  <div  class="col-sm-offset-5 ComponentClass" *ngIf=" menNumer=== 0">
+    <div >
       <button type="button" class="btn btn-primary customBlock" (click)="couponCreateClicked()">Coupons erstellen</button>
     </div>
-    <div class="col-3 text-center">
+    <div >
       <button type="button" class="btn btn-primary customBlock" (click)="couponReedeemClicked()">Coupon einlösen</button>
     </div>
-    <div class="col-3 text-center">
+    <div>
       <button type="button" class="btn btn-primary customBlock " (click)="couponCheckedClicked()">Coupon überprüfen</button>
-    </div>
-  </div>
 
-</div>
-<app-create-component *ngIf=" menNumer=== 1"></app-create-component>
-<app-reedeem *ngIf="menNumer == 2"> </app-reedeem>
-<app-check *ngIf="menNumer === 3"> </app-check>
+    </div>
+
+  </div>
+  <app-create-component *ngIf=" menNumer=== 1"></app-create-component>
+  <app-reedeem *ngIf="menNumer == 2"> </app-reedeem>
+  <app-check *ngIf="menNumer === 3"> </app-check>
 

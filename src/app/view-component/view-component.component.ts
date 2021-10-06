@@ -1,37 +1,55 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
-import {SelectionComponentComponent} from "../selection-component/selection-component.component";
 import {CreateComponentComponent} from "../create-component/create-component.component";
 import {BehaviorSubject, interval} from "rxjs";
 
 @Component({
   selector: 'app-view-component',
   templateUrl: './view-component.component.html',
-  providers: [SelectionComponentComponent],
   styleUrls: ['./view-component.component.css']
 })
 
 export class ViewComponentComponent implements OnInit {
   menSelection : number = 0;
+  switchComponent : boolean = false;
 
 
 
 
-  constructor(private select : SelectionComponentComponent) {
-    this.menSelection = 0;
+  constructor() {
+
   }
 
   ngOnInit(): void {
 
-    this.menSelection = 0;
 
 
   }
 
   newMenSelect(){
-    return this.select;
+
   }
 
-  getNum() {
+
+  switchToSelectionComponent() {
+    this.menSelection = 1;
+  }
+
+  switchToSelectionMarketing() {
+    this.menSelection = 2;
+  }
+
+  switchToSelectionBrand() {
+    this.menSelection = 3;
+  }
+
+  resetView () {
+    this.menSelection = 0;
+  }
+
+  setView(bool : boolean) :void {
+    this.switchComponent = bool;
+    if(bool == false)
+      this.resetView();
 
   }
 

@@ -14,6 +14,9 @@ import { MarketingDetailsComponent } from './marketing-details/marketing-details
 import {HttpClientModule} from "@angular/common/http";
 import { CheckComponent } from './check/check.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { MarketingComponent } from './marketing/marketing.component';
+import { BrandComponent } from './brand/brand.component';
+import { CreateMarketingComponent } from './create-marketing/create-marketing.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReedeemComponent,
     MarketingDetailsComponent,
     CheckComponent,
+    MarketingComponent,
+    BrandComponent,
+    CreateMarketingComponent,
 
   ],
   imports: [

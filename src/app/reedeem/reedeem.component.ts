@@ -74,6 +74,7 @@ export class ReedeemComponent implements OnInit {
     this.couponToReedeem = undefined;
     this.fourOFourError = false;
     this.selectorComponent.menNumer = 0;
+    this.selectorComponent.onClickSelection.emit(false);
   }
 
   redeemCoupon (email : string) : boolean  {
