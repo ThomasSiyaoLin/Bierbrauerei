@@ -81,6 +81,8 @@ export class ReedeemComponent implements OnInit {
 
     if(this.couponToReedeem?.couponID == undefined)
       return false;
+    if(this.eMail == "")
+      this.setEmail(this.getEmailInput());
     var observableObject :Observable <any> =  this.cupService.updateCoupon(this.couponToReedeem?.couponID, this.eMail);
     observableObject.subscribe((coupon : Coupon ) => {this.httpResponseError = false}, (errorCheck : Error) => {this.httpResponseError =true},
     )

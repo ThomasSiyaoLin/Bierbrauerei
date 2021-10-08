@@ -11,7 +11,7 @@
     <div>
       <app-selection-component *ngIf="menSelection == 1" (onClickSelection)="setView($event)" ></app-selection-component>
       <app-marketing *ngIf="menSelection == 2" (onClickMarketing)="setView($event)"></app-marketing>
-      <app-brand *ngIf="menSelection==3"></app-brand>
+      <app-brand *ngIf="menSelection==3" (onClickBrand)="setView($event)"></app-brand>
     </div>
   </div>
 

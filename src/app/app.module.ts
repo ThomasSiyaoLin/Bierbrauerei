@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { MarketingComponent } from './marketing/marketing.component';
 import { BrandComponent } from './brand/brand.component';
 import { CreateMarketingComponent } from './create-marketing/create-marketing.component';
+import { CreateBrandComponent } from './create-brand/create-brand.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CreateMarketingComponent } from './create-marketing/create-marketing.co
     MarketingComponent,
     BrandComponent,
     CreateMarketingComponent,
+    CreateBrandComponent,
 
   ],
   imports: [

@@ -1,4 +1,4 @@
-<div class="ComponentClass container-fluid">
+<div class="ComponentClass container">
 
 
   <div class="row" *ngIf="newCreatedCampaign == undefined">
@@ -54,7 +54,7 @@
     <p style="font-weight: lighter">Die neu erstellte Marketing Kampagne hat folgende ID bekommen:</p>
     <br><p>{{newCreatedCampaign.campaignID}}</p>
     <div>
-    <button class="btn btn-primary customBlock" (click)="creatCampaign()">Eine weitere Marketing-Kampagne erstellen</button>
+    <button class="btn btn-primary customBlock" (click)="resetStayInComponent()">Eine weitere Marketing-Kampagne erstellen</button>
     </div>
     <div class="ComponentClass" style="margin-top: 10%">
       <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>

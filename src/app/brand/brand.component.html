@@ -1,1 +1,10 @@
-<p>brand works!</p>
+
+<div  class="col-sm-offset-5 ComponentClass" *ngIf=" menuSelection=== 0">
+  <div >
+    <button type="button" class="btn btn-primary customBlock" (click)="menuSelection = 1; onClickBrand.emit(true);">Neue Marke erstellen</button>
+  </div>
+
+</div>
+<app-create-brand *ngIf="menuSelection===1" ></app-create-brand>
+
+

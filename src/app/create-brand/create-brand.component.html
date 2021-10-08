@@ -1,0 +1,37 @@
+<div *ngIf="httpError == 0">
+<div class="container" *ngIf="!isBrandCreated">
+  <div class="center-block text-center text-info" *ngIf="brands.length != 0">
+    <p style="font-weight: bolder">Diese Marken gibt es bereits schon</p>
+    <div class="center-block text-center text-info">
+    <ul style="list-style-type: none">
+      <li *ngFor=" let brand of brands" style="margin-right: 10px; font-weight: bolder">
+        -{{brand}}
+      </li>
+    </ul>
+    </div>
+  </div>
+
+    <div class="center-block text-center text-info" style="width: fit-content">
+
+      <label for="newBrand" style="width: fit-content">Neuen Marken Namen eingeben</label>
+      <input type="text" class="form-control" id="newBrand" aria-describedby="startHelp" placeholder="SELTERS"
+      (input)="setBrandName()">
+      <small id="startHelp" class="form-text text-muted">Mit der Marke können die Coupons und die Kampagnen erstellt werden</small>
+    </div>
+
+  <div *ngIf="newCreatedBrandName.length > 0" class="center-block text-center text-info">
+    <button type="button" class="btn btn-primary customBlock" (click)="createBrand()">Marke erstellen</button>
+  </div>
+</div>
+
+</div>
+<div class="container center-block text-center text-info" *ngIf="httpError == 2">
+  <p>Ihre Marke {{newCreatedBrandName}} wurde erfolgreich erstellt</p>
+  <button type="button" class="btn btn-primary customBlock" (click)="resetAllStayInComponent()">Weitere Marke erstellen</button>
+</div>
+<div class="container center-block text-center text-info" *ngIf="httpError == 1">
+  <p>Es ist ein Fehler aufgetreten. Ihre Marke exsistiert bereits</p>
+</div>
+<<div class="container center-block text-center text-info">
+  <button type="button" class="btn btn-primary customBlock" (click)="resetAll()">Hauptmenü</button>
+</div>

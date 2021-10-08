@@ -93,10 +93,18 @@ export class CreateMarketingComponent implements OnInit {
 
   }
 
+  resetStayInComponent() : void {
+    this.newCampaignName ="";
+    this.newCampaignEndDate = undefined;
+    this.newCampaignStartDate = undefined;
+    this.newCampaignBrand = undefined;
+    this.newCreatedCampaign = undefined;
+  }
+
   parseDate(dateToParse : Date)  :string {
     var minus = "-";
     var correctDateFormat : string =
-      dateToParse.getDate().toString() + minus +dateToParse.getMonth().toString() +minus + dateToParse.getFullYear().toString() ;
+      (dateToParse.getDate()+1).toString() + minus +(dateToParse.getMonth()+1).toString() +minus + dateToParse.getFullYear().toString() ;
     return correctDateFormat;
   }
 
