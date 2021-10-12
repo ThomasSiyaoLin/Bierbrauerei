@@ -1,0 +1,27 @@
+
+<div class="container" style="margin-left: 20%" >
+
+  <li *ngIf="userProfile == 'Nutzer'"><a style="background-color: aliceblue; cursor: pointer" (click)="userProfile=''">Zum Profil-Menü</a></li>
+  <div *ngIf="userProfile == ''">
+  <div class="row">
+    <img  class="col-" (click)="setUserToAdmin()"
+         src="/assets/Admin.svg" style="width: 10%; height: 10%; cursor: pointer" >
+    <img routerLink="UserView" class="col-lg-offset-2" (click)="userProfile = 'Nutzer';"
+         src="/assets/User.svg" style="width: 10%; height: 10%; cursor: pointer" >
+  </div>
+  <div class="row">
+    <span class="col-md-1"> ADMIN </span>
+    <span class="col-md-offset-2"> NUTZER </span>
+  </div>
+  </div>
+
+</div>
+<div  *ngIf="userProfile!=''">
+<p style="margin-left: 20%" *ngIf="userProfile!= ''">Sie befinden sich zurzeit in <span style="font-weight: bolder">{{userProfile}}</span> Menü</p>
+  <div class="row" *ngIf="userProfile=='Admin'" style="margin-left: 20%">
+    <app-nav-bar></app-nav-bar>
+    <li><a style="background-color: aliceblue; cursor: pointer" (click)="userProfile=''">Zum Profil-Menü</a></li>
+  </div>
+<router-outlet></router-outlet>
+</div>
+

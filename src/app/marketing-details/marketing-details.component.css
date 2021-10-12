@@ -9,7 +9,7 @@
 }
 
 p{
-  margin-left: 3%;
+
   font-weight: bolder;
   font-style: italic;
 }
@@ -19,3 +19,13 @@ p{
   font-style: normal;
 
 }
+
+ul{
+  padding: 0;
+}
+
+li{
+  margin-top: 5px;
+  list-style-type:none
+}
+

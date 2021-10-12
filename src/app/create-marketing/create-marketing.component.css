@@ -32,8 +32,10 @@ span{
 
 .loading{
   display: flex;
+}
 
-
+ul{
+  padding: 0;
 }
 
 .loading::after{

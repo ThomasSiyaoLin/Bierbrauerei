@@ -1,5 +1,5 @@
 import {Component, Injectable, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+
 
 @Component({
   selector: 'app-selection-component',
@@ -12,7 +12,9 @@ export class SelectionComponentComponent implements OnInit {
     menNumer : number = 0;
     @Output() onClickSelection = new EventEmitter<boolean>();
     @Input()reset : boolean = true;
-    //if 0 then main selection; 1 is create Component; 2 is reedeem coupon; 3 is check coupon
+    @Input()isAdmin : boolean = false;
+
+
 
   constructor() {
 
@@ -38,6 +40,12 @@ export class SelectionComponentComponent implements OnInit {
     this.menNumer = 2;
 
   }
+
+  setAdmin(bool : boolean){
+    this.isAdmin = bool;
+  }
+
+
 
 
 

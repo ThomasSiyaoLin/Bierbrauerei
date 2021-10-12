@@ -58,6 +58,7 @@ export class CreateBrandComponent implements OnInit {
     this.isBrandCreated = false;
     this.httpError = 0;
     this.brandComponent.onClickBrand.emit(false);
+    this.brandComponent.menuSelection = 0;
   }
 
   setHttpStatus(fail: HttpErrorResponse) {

@@ -26,8 +26,12 @@ export class CouponService {
 
   getCoupon (couponID : string ){
     if(this.http.get<Coupon>(this.COUPON_SERVICE_URL+couponID) )
-    var backSlash :string = "/";
+      var backslas = "/";
     return this.http.get<Coupon>(this.COUPON_SERVICE_URL+couponID);
+  }
+
+  getCoupons (campaignID : string, brand : string) : Observable<Coupon[]> {
+    return this.http.get<Coupon[]>(this.COUPON_SERVICE_URL+campaignID+"/"+brand);
   }
 
   updateCoupon (couponID : string, userId : string) :Observable<any> {

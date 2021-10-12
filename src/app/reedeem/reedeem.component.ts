@@ -114,6 +114,7 @@ export class ReedeemComponent implements OnInit {
     this.couponID= "";
     this.eMail ="";
     this.couponToReedeem = undefined;
+
   }
 
 

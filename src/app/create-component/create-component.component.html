@@ -1,12 +1,9 @@
-<div class="ComponentClass container-fluid">
+  <div class="row" style="margin-left: 20%">
 
-
-  <div class="row">
-    <div class="brandSelect">
-      <div class="col-md-4">
+      <div class="col-lg-3">
         <p >Wählen Sie eine Marke aus</p>
 
-        <ul class="brands">
+        <ul >
           <li *ngFor=" let brand of brands">
             <button type="button" class="btn btn-secondary" (click)="onSelectBrand(brand)" > {{brand}}</button>
           </li>
@@ -24,11 +21,7 @@
           </ul>
         </div>
       </div>
-      <div *ngIf=" selectedCampaign!= undefined && selectedBrand == selectedCampaign.brand">
-        <div class="col-md-4 " >
-          <app-marketing-details [marketingCampaign]="selectedCampaign"></app-marketing-details>
-        </div>
-        <div class="col-md-4">
+      <div *ngIf=" selectedCampaign!= undefined && selectedBrand == selectedCampaign.brand" class="col-lg-5">
           <h4 style="font-weight: bold">Erstelle neue Coupons</h4>
           <div class = "form-group" style="width: fit-content">
             <label for="numberOfCoupons">Anzahl neuer Coupons</label>
@@ -45,22 +38,19 @@
               <span class="badge badge-danger" style="background-color: red; margin-top: 3px">Bitte keine negativen Werte eingeben </span>
             </div>
           </div>
-        </div>
       </div>
-
-
     </div>
-  </div>
+
 
 
 
 
   <div>
-  <span *ngIf=" coupons != undefined && areCouponsAndCampaignSame()">  {{setLoading(false)}} Die Coupons wurden erfolgreich erstellt </span>
-   <span *ngIf="loading == true" class="loading">Erstelle Coupons... </span>
+  <span *ngIf=" coupons != undefined && areCouponsAndCampaignSame()" style="margin-left: 20%">  {{setLoading(false)}} Die Coupons wurden erfolgreich erstellt </span>
+   <span *ngIf="loading == true" class="loading" style="margin-left: 20%">Erstelle Coupons... </span>
 
 </div>
-</div>
+
 
 
 

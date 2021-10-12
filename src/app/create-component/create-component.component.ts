@@ -84,17 +84,6 @@ export class CreateComponentComponent implements OnInit {
 
   }
 
-  pushIn(campi : MarketingCampaign){
-    console.log(campi);
-    this.campaigns.push(campi);
-    console.log(campi.endDate > this.timeStamp);
-  }
-
-  print(campi : MarketingCampaign){
-    console.log("Markt date -> "+ campi.endDate+ "  timestampe date -> " + this.timeStamp.toUTCString());
-
-    //console.log(campi.endDate > this.timeStamp)
-  }
 
   convertJavaDateToJsDate () :void {
     if(this.converted == true)
@@ -225,26 +214,5 @@ export class CreateComponentComponent implements OnInit {
     return this.coupons[0].campaignID === this.selectedCampaign?.campaignID
   }
 
-  resetInputValues() : void {
-    console.log("Moinsen")
 
-    if(document.getElementById("numberOfCoupons")===null)
-      return;
-    else {
-      // @ts-ignore
-      var numCupInputBox = document.getElementById("numberOfCoupons");
-      // @ts-ignore
-      var startNumInpuxBox = document.getElementById("couponStartValue");
-      if(!numCupInputBox|| !startNumInpuxBox)
-        return;
-      // @ts-ignore
-      numCupInputBox.value = null;
-      // @ts-ignore
-      startNumInpuxBox.reset();
-
-
-
-    }
-
-  }
 }

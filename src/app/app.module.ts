@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { SelectionComponentComponent } from './selection-component/selection-component.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateComponentComponent } from './create-component/create-component.component';
-import { ViewComponentComponent } from './view-component/view-component.component';
-import { BrandServiceComponent } from './Service/brand-service/brand-service.component';
 import { ResetComponent } from './reset/reset.component';
 import { ReedeemComponent } from './reedeem/reedeem.component';
 import { MarketingDetailsComponent } from './marketing-details/marketing-details.component';
@@ -18,13 +16,14 @@ import { MarketingComponent } from './marketing/marketing.component';
 import { BrandComponent } from './brand/brand.component';
 import { CreateMarketingComponent } from './create-marketing/create-marketing.component';
 import { CreateBrandComponent } from './create-brand/create-brand.component';
+import {AppRoutingModule, routingComponents} from "./app-routing.module";
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectionComponentComponent,
     CreateComponentComponent,
-    ViewComponentComponent,
     ResetComponent,
     ReedeemComponent,
     MarketingDetailsComponent,
@@ -33,15 +32,19 @@ import { CreateBrandComponent } from './create-brand/create-brand.component';
     BrandComponent,
     CreateMarketingComponent,
     CreateBrandComponent,
+    routingComponents,
+    NavBarComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [SelectionComponentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

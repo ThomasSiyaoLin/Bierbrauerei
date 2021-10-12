@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {MarketingCampaignService} from "../Service/marketing-campaign.service";
 import {BrandServiceComponent} from "../Service/brand-service/brand-service.component";
 import {MarketingCampaign} from "../../entitys/MarketingCampaign";
@@ -22,9 +22,13 @@ export class CreateMarketingComponent implements OnInit {
   newCreatedCampaign? : MarketingCampaign;
 
 
+
+
   brands? : string[];
 
-  constructor(private marketingService : MarketingCampaignService, private brandService : BrandServiceComponent, private marketingSelection : MarketingComponent) { }
+  constructor(private marketingService : MarketingCampaignService,
+              private brandService : BrandServiceComponent,
+              private marketingSelection : MarketingComponent) { }
 
   ngOnInit(): void {
 
@@ -90,6 +94,7 @@ export class CreateMarketingComponent implements OnInit {
     this.newCampaignBrand = undefined;
     this.newCreatedCampaign = undefined;
     this.marketingSelection.onClickMarketing.emit(false);
+    this.marketingSelection.menuSelection = 0;
 
   }
 

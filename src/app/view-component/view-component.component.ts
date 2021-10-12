@@ -1,13 +1,14 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {CreateComponentComponent} from "../create-component/create-component.component";
 import {BehaviorSubject, interval} from "rxjs";
+import {SelectionComponentComponent} from "../selection-component/selection-component.component";
 
 @Component({
   selector: 'app-view-component',
   templateUrl: './view-component.component.html',
   styleUrls: ['./view-component.component.css']
 })
-
+@Injectable()
 export class ViewComponentComponent implements OnInit {
   menSelection : number = 0;
   switchComponent : boolean = false;
@@ -52,5 +53,7 @@ export class ViewComponentComponent implements OnInit {
       this.resetView();
 
   }
+
+
 
 }

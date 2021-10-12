@@ -1,11 +1,39 @@
 
-<h4 style="font-weight: bold">Informationen zur Kampagne</h4>
-<div class="information row-no-gutters" *ngIf="marketingCampaign!=undefined">
-  <span>
-    <p>Name der Marketing-Kampagne: <br><span class="normalus">{{marketingCampaign.campaignName}}</span></p>
-    <p>Marke: <span class="normalus">{{marketingCampaign.brand}}</span> </p>
-    <p>ID der Marketing-Kampagne: <span class="normalus">{{marketingCampaign.campaignID}}</span></p>
-    <p>Start-Datum: <span class="normalus">{{marketingCampaign.startDate}}</span></p>
-    <p>Ende-Datum: <span class="normalus">{{marketingCampaign.endDate}}</span></p>
-  </span>
+<div class ="row" style="margin-left: 20%">
+  <div class="col-md-4" style="padding: 0">
+    <p>Wählen Sie eine Marke aus</p>
+
+    <ul class="brands marginTop">
+      <li *ngFor=" let brand of brands">
+        <button type="button" class="btn btn-secondary" (click)="selectedBrand = brand" > {{brand}}</button>
+      </li>
+    </ul>
+
+    <div  *ngIf="selectedBrand != undefined">
+      <p>Wählen Sie eine Kampagne aus </p>
+      <ul>
+        <li *ngFor=" let campi of campaigns ">
+          <button *ngIf="selectedBrand == campi.brand" type="button" class="btn btn-secondary"
+                  (click)="loadCoupons(campi)"> {{campi.campaignName}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class ="col-md-5"  *ngIf="selectedBrand != undefined && selectedMarketingCampaign != undefined">
+    <p>{{selectedMarketingCampaign.campaignName}} hat folgende Coupons</p>
+    <ul style="overflow: scroll; height: 200px; overflow-x: hidden">
+      <li *ngFor=" let coupon of couponsFromCampaign ">
+        <span style="color: #dc3545"*ngIf="coupon.used == true; else elseBlock">{{coupon.couponID}}</span>
+        <ng-template #elseBlock>{{coupon.couponID}} </ng-template>
+      </li>
+    </ul>
+    ROT: Bereits eingelöst
+  </div>
 </div>
+<div class="col-md-4" style="margin-top: 10%; margin-left: 20%; padding-left: 0">
+  <button type="button" class="btn btn-primary customBlock"  (click)="resetAll()">Hauptmenü</button>
+</div>
+
+
+
+
