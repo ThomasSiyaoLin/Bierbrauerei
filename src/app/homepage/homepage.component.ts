@@ -5,7 +5,7 @@ import {ViewComponentComponent} from "../view-component/view-component.component
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  providers: [ViewComponentComponent],
+  providers: [SelectionComponentComponent],
   styleUrls: ['./homepage.component.css']
 })
 @Injectable()
@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
   @Output() onClickAdmin = new EventEmitter<boolean>();
 
 
-  constructor(private viewComponent : ViewComponentComponent) {
+  constructor(private selectionComponent : SelectionComponentComponent) {
 
   }
 
@@ -24,5 +24,6 @@ export class HomepageComponent implements OnInit {
 
   setUserToAdmin() {
     this.userProfile = 'Admin'
+    this.selectionComponent.setAdmin(true);
   }
 }
